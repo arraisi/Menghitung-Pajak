@@ -44,33 +44,25 @@ public class Tugas2_Pajak {
         
         System.out.println("Penghasilan : " + Penghasilan);
         
-        int pajak = 0 ;
-        if (Penghasilan > 0){
-            pajak += (Penghasilan*0.5);
-            Penghasilan -= 50000000;
-            System.out.println("Pajak = " + pajak);}
-        else if (Penghasilan > 250000000) {
-                pajak += (Penghasilan*0.15);
-                Penghasilan -= 250000000;
-                System.out.println("Pajak = " + pajak);}
-        else if  (Penghasilan > 500000000) {
-                pajak += (Penghasilan*0.25);
-                Penghasilan -= 250000000;
-                System.out.println("Pajak = " + pajak);}
-                   else if  (Penghasilan > 500000000) {
-                    pajak += (Penghasilan*0.30);
-                    Penghasilan -= 500000000;
-                System.out.println("Pajak = " + pajak);
-                
-        }  
-         
+        Double pajak ;
+        if (Penghasilan > 500000000){
+            pajak = Penghasilan - 500000000*0.3;
+            pajak += 500000000*0.25;
+            pajak += 250000000*0.15;
+            pajak += 50000000*0.05;
         }
+        else if (Penghasilan>250000000 && Penghasilan < 500000000){
+            pajak = Penghasilan - 250000000*0.25;
+            pajak += 250000000*0.15;
+            pajak += 50000000*0.05;
+        }
+        else if (Penghasilan>50000000 && Penghasilan < 250000000){
+            pajak = Penghasilan - 50000000*0.15;
+            pajak += 50000000*0.05;
+        }
+        else if (Penghasilan>0 && Penghasilan < 50000000){
+            pajak = Penghasilan*0.05;
+          
         
-//Input PTKP
-       // System.out.println("PTKP : ");
-       // int PTKP = input.nextInt();
-        
-       // Penghasilan -= PTKP;
-        
-       // if  
-}
+        System.out.println("Pajak = " + pajak); 
+        }}}
