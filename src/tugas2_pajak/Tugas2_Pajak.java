@@ -21,7 +21,7 @@ public class Tugas2_Pajak {
         Scanner input = new Scanner(System.in);
         //Input Penghasilan
         System.out.println("Penghasilan : ");
-        int Penghasilan = input.nextInt();
+        Long Penghasilan = input.nextLong();
         //Input status
         System.out.println("Status : ketik false jika Belum Menikah, true jika Sudah Menikah: ");
         boolean Status = input.nextBoolean();
@@ -38,31 +38,39 @@ public class Tugas2_Pajak {
             System.out.println("tk : ");
             int tk = input.nextInt();
                 System.out.println("PTKP : " + nilaiPTKP[tk]);
-                int x = Penghasilan - nilaiPTKP[tk];
+                Long x = Penghasilan - nilaiPTKP[tk];
                 
     }
         
         System.out.println("Penghasilan : " + Penghasilan);
-        
-        Double pajak ;
+        Long pajak ;
         if (Penghasilan > 500000000){
-            pajak = Penghasilan - 500000000*0.3;
-            pajak += 500000000*0.25;
-            pajak += 250000000*0.15;
-            pajak += 50000000*0.05;
-        }
-        else if (Penghasilan>250000000 && Penghasilan < 500000000){
-            pajak = Penghasilan - 250000000*0.25;
-            pajak += 250000000*0.15;
-            pajak += 50000000*0.05;
-        }
-        else if (Penghasilan>50000000 && Penghasilan < 250000000){
-            pajak = Penghasilan - 50000000*0.15;
-            pajak += 50000000*0.05;
-        }
-        else if (Penghasilan>0 && Penghasilan < 50000000){
-            pajak = Penghasilan*0.05;
-          
+            pajak = (Penghasilan - 500000000)*30/100;
+            //System.out.println("Pajak = " + pajak);
+            pajak = pajak+(500000000*25/100);
+            //System.out.println("Pajak = " + pajak);
+            pajak = pajak+ (250000000*15/100);
+            //System.out.println("Pajak = " + pajak);
+            pajak = pajak+ (50000000*5/100);
+            System.out.println("Pajak = " + pajak);}
         
-        System.out.println("Pajak = " + pajak); 
+        else if (Penghasilan > 250000000 && Penghasilan <= 500000000){
+            pajak = (Penghasilan - 250000000)*25/100;
+            //System.out.println("Pajak = " + pajak);
+            pajak = pajak+ (250000000*15/100);
+            //System.out.println("Pajak = " + pajak);
+            pajak = pajak+ (50000000*5/100);
+            System.out.println("Pajak = " + pajak);}
+    
+        else if (Penghasilan>50000000 && Penghasilan <= 250000000){
+            pajak = (Penghasilan - 50000000)*15/100;
+            pajak = pajak + (50000000*5/100);
+            System.out.println("Pajak = " + pajak);}
+        
+        else {if (Penghasilan>0 && Penghasilan <= 50000000){
+            pajak = Penghasilan*5/100;
+            System.out.println("Pajak = " + pajak);
+        } 
+        
+        
         }}}
